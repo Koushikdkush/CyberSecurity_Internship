@@ -12,6 +12,26 @@ packets and analyzing the responses. Nmap provides a number of
 features for probing computer networks, including host discovery and
 service and operating system detection.
 
+------------------------------------------------------------
+Basic commands
+$pwd: print work directory.
+$mkdir <directory name>: creating directory.
+$cd <path>: change directory.
+$cp <src_path> <destination_path>: copies the source file to some other destination file.
+$mv <src_path> <destination_path>: copy and replace, can also be used for renaming file.
+$rm <filename.extension>: delete the file if it is present in the same directory. else, to specify the path.
+$touch <filename>: creates a text file with the given filename.
+$ls <file_path>:lists the files inside the directory.
+$ls -la: lists the files with its attributes.
+$ifconfig: shows all interfaces and its information, including IP and Mac address.
+$cat <filename.extension>: displays the content of the text file.
+$head <filename.extension>: displays the starting n lines of the text file.
+$tail <filename.extension>: displays the ending n lines of the text file.
+$file <filename.extension>: shows what type of the file specified.
+$id: displays the current user’s id and permissions.
+$whoami: show as which user you have been logged in.
+$uname -a : shows the kernel info.
+
 
 nmap -sV ipaddress
 sV: provides the type of service given by the ports
