@@ -185,7 +185,7 @@ to modify the id, he’ll be able to see it.
 Simple Example on tracking the credentials of the website and testing
 the security of the website using the Burpsuite
 
-
+--------------Local------------------------
 LFI Local File Inclusions :-
 When apps allow to view certain system files without any restriction, by
 this attack we could access the entire system files.
